@@ -17,11 +17,10 @@ class ClientController extends Controller
         $data = $response->json(); 
 
         if($data){
-            return view('client', compact('data')); 
+            return view('/client.client', compact('data')); 
         }else{
             echo 'no hay datos';
         }
-
         
     }
 

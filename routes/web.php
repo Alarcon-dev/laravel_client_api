@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
-   return view('/index');
+   return view('client.index');
 });
 
 Route::controller(ClientController::class)->group(function(){
