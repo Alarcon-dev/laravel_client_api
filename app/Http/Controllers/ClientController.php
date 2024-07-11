@@ -12,11 +12,17 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $url = env("URL_SERVER_API","/clients"); 
-        $reponse = Http::get($url); 
-        $data = $reponse->json(); 
+        $url = env("URL_SERVER_API"); 
+        $response = Http::get($url."clients"); 
+        $data = $response->json(); 
 
-        return view('client', compact($data)); 
+        if($data){
+            return view('client', compact('data')); 
+        }else{
+            echo 'no hay datos';
+        }
+
+        
     }
 
     /**
