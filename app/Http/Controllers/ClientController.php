@@ -29,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.create'); 
     }
 
     /**
@@ -37,7 +37,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $url = env('URL_SERVER_API'); 
+        $response = Http::post($url.'clients', [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'addres' => $request->address,
+        ]);
+
+    
+
+        if($response !== null){
+            return redirect('/index')->with('success', 'client saved');
+        }else{
+            echo "Error, client didn't saved";
+        }
     }
 
     /**
