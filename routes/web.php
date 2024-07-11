@@ -10,5 +10,11 @@ Route::get('/', function () {
 
 Route::controller(ClientController::class)->group(function(){
    Route::get('/index', 'index');
+   Route::get('/create', 'create');
+   Route::get('/store', 'store');
+   Route::get('/show', 'show');
+   Route::get('/update', 'update');
+   Route::get('/delete', 'delete');
+
    
 }); 
