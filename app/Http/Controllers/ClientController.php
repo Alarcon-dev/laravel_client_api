@@ -59,7 +59,19 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        //
+   
+        $url = env('URL_SERVER_API');  
+        $response = Http::get($url.'clients/'.$id); 
+        $data = $response->json();
+
+    
+
+        if($data != null){
+            return view('client.getClient', compact('data'));
+        }
+
+        echo 'to tray get cleint error';
+
     }
 
     /**
@@ -67,7 +79,16 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $url = env('URL_SERVER_API'); 
+        $response = Http::get($url.'clients/'.$id);
+
+        $data = $response->json();
+
+        if($data){
+            return view('client.edit', compact('data'));
+        }
+
+        echo 'Error to edit client';
     }
 
     /**
@@ -75,7 +96,20 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $url = env('URL_SERVER_API');
+        
+        $response = Http::put($url.'clients/'.$id, [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'addres' => $request->addres,
+        ]);
+
+        if($response){
+            return redirect('/index');
+        }
+
+        echo 'Error to try client';
     }
 
     /**
@@ -83,6 +117,6 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $url = env();
     }
 }

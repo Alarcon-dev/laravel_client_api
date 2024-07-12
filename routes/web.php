@@ -12,9 +12,8 @@ Route::controller(ClientController::class)->group(function(){
    Route::get('/index', 'index');
    Route::get('/create', 'create');
    Route::post('/store', 'store');
-   Route::get('/show', 'show');
-   Route::get('/update', 'update');
-   Route::get('/delete', 'delete');
-
-   
+   Route::get('/show/{id}', 'show');
+   Route::get('edit/{id}', 'edit');
+   Route::post('/update/{id}', 'update');
+   Route::delete('/delete/{id}', 'destroy');
 }); 

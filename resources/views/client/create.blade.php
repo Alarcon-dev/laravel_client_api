@@ -1,5 +1,5 @@
 <h1>Create Client</h1>
-<form action="/store" method="post">
+<form action="/store/{{$data['client']['id']}}" method="post">
     @csrf
     <label for="name">Name</label>
     <input type="text" name="name" id="">
