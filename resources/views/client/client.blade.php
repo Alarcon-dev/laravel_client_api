@@ -19,7 +19,7 @@
                 <td>
                     <a href="/show/{{$client['id']}}">Ver</a>
                     <a href="/edit/{{$client['id']}}">Editar</a>
-                    <a href="">Eliminar</a>
+                    <a href="/delete/{{$client['id']}}">Eliminar</a>
                 </td>
             </tr>
         @endforeach

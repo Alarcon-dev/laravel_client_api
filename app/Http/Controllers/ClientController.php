@@ -117,6 +117,18 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        $url = env();
+        $url = env('URL_SERVER_API');
+        $response = Http::delete($url.'clients/'.$id);
+
+        $client = $response->json();
+
+
+        if($client){
+            return redirect('/index');
+        }
+
+        echo "error to attemp delete client";
+        
+
     }
 }
